@@ -1,0 +1,71 @@
+/**
+ * Im besten Fall steuern wir mit diesen Farben den gesamten Look & Feel der Website. Durch Media Queries können
+ * wir die Farben für den Dark Mode setzen oder bei Bedarf auch auf hohen Kontrast setzen.
+ */
+:root {
+	--color-background    : #f7f7f7;
+	--color-text          : #222;
+	--color-text-inverse  : #fff;
+}    
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background   : #222;
+		--color-text         : #ddd;
+		--color-text-inverse : #222;
+	}
+}
+
+/* Diese Farben habe ich von Bootstrap übernommen. */
+:root {
+    --color-primary   : #007bff;
+    --color-secondary : #6c757d;
+    --color-success   : #28a745;
+    --color-info      : #17a2b8;
+    --color-warning   : #ffc107;
+    --color-danger    : #dc3545;
+    --color-light     : #f8f9fa;
+    --color-dark      : #343a40;
+}
+
+/* Wir arbeiten mit den folgenden Breakpoints: */    
+:root {
+    --breakpoint-xs :  576px; 
+    --breakpoint-s  :  768px; 
+    --breakpoint-m  :  992px; 
+    --breakpoint-l  : 1200px; 
+    --breakpoint-xl : 1400px; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5em;
+}
+
+div.container {
+	padding: .5em 1em;
+}
+
+a,
+a:active
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    /* text-decoration: underline; */
+    transform: scale(1.2);
+}
+
+@media (hover: none) {} 
+@media (min-width: var(--breakpoint-xs)) {}
+@media (min-width: var(--breakpoint-s )) {}
+@media (min-width: var(--breakpoint-m )) {}
+@media (min-width: var(--breakpoint-l )) {}
+@media (min-width: var(--breakpoint-xl)) {}
+

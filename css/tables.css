@@ -1,0 +1,116 @@
+:root {
+	--color-table-head      : #ccc;
+	--color-table-foot      : #bbb;
+	--color-table-border    : #888;
+    --color-table-row-even  : #fff1;
+	--color-table-row-odd   : #0001;
+	--color-table-row-hover : #05a3;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-table-head      : #333;
+        --color-table-foot      : #222;
+        --color-table-border    : #555;
+    }
+}
+    
+/* TABLE */
+div.flex-table {
+    width: 100%;
+}
+div.flex-table * {
+    box-sizing: border-box;
+}
+
+/* ROW / ITEM */
+div.flex-table > div {
+    width: 100%;
+    display: flex;
+    margin: .1em 0;
+    padding: .2em .4em;
+    flex-direction: row;
+}
+div.flex-table > div:first-child {
+    border-radius: .25em .25em 0 0;
+}
+div.flex-table > div:last-child {
+    border-radius: 0 0 .25em .25em;
+}
+div.flex-table > div:nth-child(odd) {
+    background-color: var(--color-table-row-odd);
+}
+div.flex-table > div:nth-child(even) {
+    background-color: var(--color-table-row-even);
+}
+div.flex-table > div:hover {
+    background-color: var(--color-table-row-hover);
+}
+div.flex-table > div.header {
+    z-index: auto;
+    padding: .3em .4em .1em .4em;
+    font-weight: bold;
+    box-shadow: none;
+    background-color: var(--color-table-head);
+    border-bottom: 1px solid var(--color-table-border);
+}
+
+/* COL / VALUE */
+div.flex-table > div > div {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*  Unter 768px soll die Tabelle aus den Zeilen jeweils Blöcke machen, die nacheinander folgen. */
+@media (max-width: 48em) {
+    div.flex-table > div {
+        flex-direction: column;
+    }
+    div.flex-table > div.header {
+        display: none;
+    }
+    div.flex-table > div > div {
+        width: auto;
+        margin: .2em 0;
+        white-space: normal;
+    }
+}
+
+div.flex-table .g0 { flex-grow: 0; }
+div.flex-table .g1 { flex-grow: 1; }
+div.flex-table .g2 { flex-grow: 2; }
+div.flex-table .g3 { flex-grow: 3; }
+
+div.flex-table .s0 { flex-shrink: 0; }
+div.flex-table .s1 { flex-shrink: 1; }
+div.flex-table .s2 { flex-shrink: 2; }
+div.flex-table .s3 { flex-shrink: 3; }
+
+/* Classic TABLE */
+table {
+    font-size: .9em;
+    white-space: nowrap;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+}
+table thead {
+    background-color: var(--color-table-head);
+}
+table tfoot {
+    background-color: var(--color-table-foot);
+}
+table tbody tr:nth-child(odd) {
+    background-color: var(--color-table-row-odd);
+}
+table tbody tr:nth-child(even) {
+    background-color: var(--color-table-row-even);
+}
+table tbody tr:hover {
+    background-color: var(--color-table-row-hover);
+}
+table th,
+table td {
+    padding: .25em .75em;
+    border: 1px solid var(--color-table-border);
+}

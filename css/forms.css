@@ -1,0 +1,139 @@
+/**
+ * Ich versuche mich an einer allgemeinen forms.css, die ich in allen Projekten wiederverwenden kann,
+ * um ein sinnvolles DEFAULT für Formulare hinzubekommen, ohne das jedes mal anpassen zu müssen.
+ * Das Styling sollte sowohl HELL als auch DUNKEL funktionieren und automatisch umschalten. Alle hier
+ * verwendeten Farben werden auch hier definiert.
+ */
+ 
+form {
+    --color-input-background  : #eee;
+    --color-input-text        : #111;
+    --color-input-placeholder : #aaa;
+    --color-input-border      : #aaa;
+
+    --color-button-default-one : #08f;
+    --color-button-default-two : #06d;
+    --color-button-danger-one  : #dc3545;
+    --color-button-danger-two  : #cb2434;
+    --color-button-warning-one : #ffc107;
+    --color-button-warning-two : #eeb006;
+
+    --color-button-text         : #f7f7f7;
+    --color-button-text-inverse : #151515;
+    --color-button-border       : #0002;
+    
+    --color-fieldset-border : #0003;
+    
+    --color-focus  : rgb(126,171,253);
+    --color-hover  : rgb(126,171,253,.5);
+    --color-shadow : #0002;
+}
+@media (prefers-color-scheme: dark) {
+    form {
+        --color-input-background  : #111;
+        --color-input-text        : #eee;
+        --color-input-placeholder : #555;
+        --color-input-border      : #555;
+
+        --color-fieldset-border : #fff3;
+
+        --color-focus  : rgb(63,85,128);
+        --color-hover  : rgb(63,85,128,.5);
+    }
+}
+
+input,
+button,
+textarea {
+    background: none;
+    background-color: var(--color-input-background);
+    color: var(--color-input-text);
+    margin: 0;
+    padding: .25em .5em;
+    font-size: 1rem;
+    border-radius: .25em;
+    border: 1px solid var(--color-input-border);
+    box-sizing: border-box;
+}
+
+input[type=date],
+input[type=time],
+input[type=datetime-local] {
+    padding: .125em .5em;
+}
+
+input,
+textarea {
+    width: 100%;    
+}
+input[type=radio],
+input[type=checkbox] {
+    width: auto;
+    vertical-align: middle;
+}
+input[type=radio] + label,
+input[type=checkbox] + label {
+    margin-left: .5em;
+    vertical-align: middle;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-input-placeholder);    
+}
+
+button {
+    color: var(--color-button-text);
+    font-weight: bold;
+    padding: .35em .75em;
+    border: 1px solid var(--color-button-border);
+    box-shadow: 0 0 10px var(--color-shadow);
+    background-image: linear-gradient(to bottom, var(--color-button-default-one) 0%, var(--color-button-default-two) 100%); 
+}
+button.danger {
+    background-image: linear-gradient(to bottom, var(--color-button-danger-one) 0%, var(--color-button-danger-two) 100%); 
+}
+button.warning,
+button[type="reset"] {
+    color: var(--color-button-text-inverse);
+    background-image: linear-gradient(to bottom, var(--color-button-warning-one) 0%, var(--color-button-warning-two) 100%); 
+}
+button + button {
+    margin-left: .25em;
+}
+
+input:hover,
+button:hover,
+textarea:hover {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--color-hover); 
+}
+
+input:focus,
+button:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--color-focus); 
+}
+
+
+fieldset {
+    margin: .5em 0;
+    padding: 0 .5em .5em .5em;
+    border-radius: .25em;
+    border: 1px solid var(--color-fieldset-border);    
+}
+fieldset legend {
+    padding: 0 .25em;
+    font-size: .9em;
+    font-weight: 100;
+    color: var(--color-input-text);
+}
+fieldset textarea {
+    margin-bottom: -.5em;
+}
+fieldset small {
+    font-size: 0.9rem;
+    display: block;
+    margin: -.25em 0 .25em 0;
+}
